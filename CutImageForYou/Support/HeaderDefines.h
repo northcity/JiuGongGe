@@ -16,7 +16,7 @@
 #import <BmobSDK/Bmob.h>
 //#import <GTSDK/GeTuiSdk.h>
 //#import "Masonry/Masonry.h"
-
+#import "BCJiuGongGeImageManager.h"
 #import "ThirdPathKey.h"
 #import <Social/Social.h> // 导入苹果自带分享的头文件
 

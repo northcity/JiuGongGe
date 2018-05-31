@@ -19,6 +19,7 @@
 		15FAC18220A524D800DD5E1B /* CutImageForYouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18120A524D800DD5E1B /* CutImageForYouTests.m */; };
 		15FAC18D20A524D800DD5E1B /* CutImageForYouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18C20A524D800DD5E1B /* CutImageForYouUITests.m */; };
 		F758C81120A6F5260083B2B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
+		F795C98820C037AF000E0318 /* BCJiuGongGeImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F795C98720C037AF000E0318 /* BCJiuGongGeImageManager.m */; };
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */; };
 		F7F1532C20A5EB1900525F05 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F1531020A5EB1800525F05 /* Factory.m */; };
@@ -110,6 +111,8 @@
 		15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPathKey.h; sourceTree = "<group>"; };
 		15FAC19D20A5271600DD5E1B /* HeaderDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderDefines.h; sourceTree = "<group>"; };
 		F758C81020A6F5260083B2B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CutImageForYou/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F795C98620C037AF000E0318 /* BCJiuGongGeImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCJiuGongGeImageManager.h; sourceTree = "<group>"; };
+		F795C98720C037AF000E0318 /* BCJiuGongGeImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCJiuGongGeImageManager.m; sourceTree = "<group>"; };
 		F7F152F820A5DF1E00525F05 /* ZJViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewShow.h; sourceTree = "<group>"; };
 		F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJViewShow.m; sourceTree = "<group>"; };
 		F7F1530D20A5EB1800525F05 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -250,13 +253,9 @@
 		15FAC16720A524D600DD5E1B /* CutImageForYou */ = {
 			isa = PBXGroup;
 			children = (
+				F795C98320C03758000E0318 /* AppDelegate */,
+				F795C98220C03745000E0318 /* JiuGongGe */,
 				15FAC19A20A526F500DD5E1B /* Support */,
-				15FAC16820A524D600DD5E1B /* AppDelegate.h */,
-				15FAC16920A524D600DD5E1B /* AppDelegate.m */,
-				15FAC16B20A524D600DD5E1B /* ViewController.h */,
-				15FAC16C20A524D700DD5E1B /* ViewController.m */,
-				F7F1536E20A5FEEC00525F05 /* LaunchViewController.h */,
-				F7F1536F20A5FEED00525F05 /* LaunchViewController.m */,
 				15FAC16E20A524D700DD5E1B /* Main.storyboard */,
 				15FAC17320A524D700DD5E1B /* LaunchScreen.storyboard */,
 				15FAC17620A524D800DD5E1B /* Info.plist */,
@@ -296,6 +295,44 @@
 				15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		F795C98220C03745000E0318 /* JiuGongGe */ = {
+			isa = PBXGroup;
+			children = (
+				F795C98520C03784000E0318 /* Manager */,
+				F795C98420C0376F000E0318 /* Controllers */,
+			);
+			path = JiuGongGe;
+			sourceTree = "<group>";
+		};
+		F795C98320C03758000E0318 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				15FAC16820A524D600DD5E1B /* AppDelegate.h */,
+				15FAC16920A524D600DD5E1B /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		F795C98420C0376F000E0318 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15FAC16B20A524D600DD5E1B /* ViewController.h */,
+				15FAC16C20A524D700DD5E1B /* ViewController.m */,
+				F7F1536E20A5FEEC00525F05 /* LaunchViewController.h */,
+				F7F1536F20A5FEED00525F05 /* LaunchViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F795C98520C03784000E0318 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				F795C98620C037AF000E0318 /* BCJiuGongGeImageManager.h */,
+				F795C98720C037AF000E0318 /* BCJiuGongGeImageManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		F7F152F520A5DF1E00525F05 /* newProgress */ = {
@@ -539,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F795C98820C037AF000E0318 /* BCJiuGongGeImageManager.m in Sources */,
 				F7F1532C20A5EB1900525F05 /* Factory.m in Sources */,
 				15FAC16D20A524D700DD5E1B /* ViewController.m in Sources */,
 				15FAC17820A524D800DD5E1B /* main.m in Sources */,

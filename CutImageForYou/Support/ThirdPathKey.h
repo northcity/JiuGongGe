@@ -10,9 +10,7 @@
 #define ThirdPathKey_h
 
 #define kGtAppId   @"dYqsPMzLX96Vjl7MtDh7lA"
-
 #define kGtAppKey    @"YtvfVl4C3b73CkgOa1NqF8"
-
 #define kGtAppSecret   @"4d3S2s5kCr66GtAg0kSN7"
 
 //

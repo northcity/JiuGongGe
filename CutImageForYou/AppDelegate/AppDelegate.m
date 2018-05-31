@@ -7,43 +7,26 @@
 //
 
 #import "AppDelegate.h"
-#import "LaunchViewController.h"
 #import "ViewController.h"
+#import "LaunchViewController.h"
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate
 #pragma mark —页面跳转
-- (void)jumpViewController:(NSDictionary*)tfdic
-{
-    NSDictionary *remoteNotification = [tfdic objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+- (void)jumpViewController:(NSDictionary*)tfdic{
     
-
-    
-    
-    //    NSDictionary *userInfo = [tfdic objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
-    UIApplicationShortcutItem *cameraItem = [tfdic objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
-    
-     if ([cameraItem.type isEqualToString:@"typeOne"]){
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            CATransition *anima = [CATransition animation];
-            [anima setType:kCATransitionFade];
-            [anima setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
-            anima.duration = 1;
-            anima.type = @"pageCurl";
-            anima.subtype = kCATransitionFromRight;
-            
-//            ViewController *mainTextVc = [[ViewController alloc] init];
-            ViewController *rootVC = (ViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-//            [rootVC.view.layer addAnimation:anima forKey:nil];
-            
-//            [rootVC pushViewController:mainTextVc animated:YES];
-            [rootVC selectedXiangCeImage];
-        });
-        
-     }
+    if (@available(iOS 9.0, *)) {
+        UIApplicationShortcutItem *cameraItem = [tfdic objectForKey:UIApplicationLaunchOptionsShortcutItemKey];
+        if ([cameraItem.type isEqualToString:@"typeOne"]){
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                ViewController *rootVC = (ViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+                [rootVC selectedXiangCeImage];
+            });
+        }
+    } else {
+        // Fallback on earlier versions
+    }
 }
 - (void)setup3DTouch:(UIApplication *)application{
     /**
@@ -54,21 +37,21 @@
      userInfo：用户信息字典 自定义参数，完成具体功能需求
      */
     
-    //    UIApplicationShortcutIcon *icon1 = [UIApplicationShortcutIcon iconWithTemplateImageName:@"标签.png"];
-    
-    
-    UIApplicationShortcutIcon *cameraIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCapturePhoto];
-    UIApplicationShortcutItem *cameraItem = [[UIApplicationShortcutItem alloc] initWithType:@"typeOne" localizedTitle:@"九宫格切图" localizedSubtitle:@"" icon:cameraIcon userInfo:nil];
-    application.shortcutItems = @[cameraItem];
+    if (@available(iOS 9.0, *)) {
+        if (@available(iOS 9.1, *)) {
+            UIApplicationShortcutIcon *cameraIcon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeCapturePhoto];
+            UIApplicationShortcutItem *cameraItem = [[UIApplicationShortcutItem alloc] initWithType:@"typeOne" localizedTitle:@"九宫格切图" localizedSubtitle:@"" icon:cameraIcon userInfo:nil];
+            application.shortcutItems = @[cameraItem];
+        } else {
+            // Fallback on earlier versions
+        }
+    } else {
+        // Fallback on earlier versions
+    }
     
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    LaunchViewController *Lvc = [[LaunchViewController alloc]init];
-//    UINavigationController*nav = [[UINavigationController alloc]initWithRootViewController:Lvc];
-//    self.window.rootViewController = nav;
-//
     [self setup3DTouch:application];
     [self jumpViewController:launchOptions];
     [self chuShiHuaBomb];
@@ -77,20 +60,9 @@
 
 - (void)chuShiHuaBomb{
     [Bmob registerWithAppKey:@"075c9e426a01a48a81aa12305924e532"];
-    
-//                //往GameScore表添加一条playerName为小明，分数为78的数据
-//                BmobObject *gameScore = [BmobObject objectWithClassName:@"appKaiGuan"];
-//                [gameScore setObject:@"关" forKey:@"JiuGongGeDuLiApp"];
-//                [gameScore saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//    
-//                }];
-    
-    
     NSString *nowStatus = [[NSUserDefaults standardUserDefaults] objectForKey:@"KaiGuanShiFouDaKai"];
     
-    if ([nowStatus isEqualToString:@"开"]) {
-        
-    }else{
+    if (![nowStatus isEqualToString:@"开"]) {
         //查找GameScore表
         BmobQuery   *bquery = [BmobQuery queryWithClassName:@"appKaiGuan"];
         //查找GameScore表里面id为0c6db13c的数据
@@ -109,8 +81,6 @@
             }
         }];
     }
-    
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
