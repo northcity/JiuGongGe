@@ -59,12 +59,35 @@
     [self createXinButton];
     
 }
+
+#pragma mark - ======开始心跳动画Animation=======
+- (void)startHeartAnimation:(CALayer *)layer repeatCount:(CGFloat)repeatCount{
+    if (@available(iOS 9.0, *)) {
+        CASpringAnimation *springAnimation = [CASpringAnimation animationWithKeyPath:@"transform.scale"];
+        springAnimation.mass = 10.0;
+        springAnimation.stiffness = 1200;
+        springAnimation.damping = 2;
+        springAnimation.initialVelocity = 0;
+        springAnimation.duration = 10;
+        springAnimation.fromValue = [NSNumber numberWithFloat:0.95];
+        springAnimation.toValue = [NSNumber numberWithFloat:1];
+        springAnimation.repeatCount = repeatCount;
+        springAnimation.autoreverses = YES;
+        springAnimation.removedOnCompletion = NO;
+        springAnimation.fillMode = kCAFillModeForwards;
+        springAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        [layer addAnimation:springAnimation forKey:@"springAnimation"];
+    }
+}
+
 - (void)createXinButton{
     self.xinButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.xinButton.frame = CGRectMake(ScreenWidth/2 - 22, kAUTOHEIGHT(120), 44, 44);
-    self.xinButton.backgroundColor = [UIColor redColor];
+    self.xinButton.frame = CGRectMake(0, 0, 60, 60);
+    self.xinButton.backgroundColor = [UIColor clearColor];
+    [self.xinButton setImage:[UIImage imageNamed:@"心脏"] forState:UIControlStateNormal];
     [self.xinButton addTarget:self action:@selector(presentXinController) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.xinButton];
+//    [self.view addSubview:self.xinButton];
+    [self startHeartAnimation:self.xinButton.layer repeatCount:MAXFLOAT];
 }
 
 - (void) presentXinController{
@@ -136,7 +159,7 @@
     UIButton *addImageButton = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
     [self.view addSubview:addImageButton];
     addImageButton.center = self.view.center;
-    [addImageButton addTarget:self action:@selector(selectedXiangCeImage) forControlEvents:UIControlEventTouchUpInside];
+    [addImageButton addTarget:self action:@selector(showActionSheet) forControlEvents:UIControlEventTouchUpInside];
     [addImageButton setImage:[UIImage imageNamed:@"添加.png"] forState:UIControlStateNormal];
     [addImageButton setImage:[UIImage imageNamed:@"添加.png"] forState:UIControlStateHighlighted];
     addImageButton.alpha = 0;
@@ -163,6 +186,47 @@
         }];
     }];
 }
+
+- (void)showActionSheet{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"你想干啥？" message:@"切九宫格还是拼心形" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    /*
+     typedef NS_ENUM(NSInteger, UIAlertActionStyle) {
+     UIAlertActionStyleDefault = 0,
+     UIAlertActionStyleCancel,         取消按钮
+     UIAlertActionStyleDestructive     破坏性按钮，比如：“删除”，字体颜色是红色的
+     } NS_ENUM_AVAILABLE_IOS(8_0);
+     
+     */
+    // 创建action，这里action1只是方便编写，以后再编程的过程中还是以命名规范为主
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"九宫格切图" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了按钮1，进入按钮1的事件");
+        [self selectedXiangCeImage];
+    }];
+
+    UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"心形拼图" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self presentXinController];
+        //跳到创建alertview的方法，一般在点击删除这里按钮之后，都需要一个提示框，提醒用户是否真的删除
+    }];
+    
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"点击了取消");
+    }];
+    
+    
+    //把action添加到actionSheet里
+    [actionSheet addAction:action1];
+    [actionSheet addAction:action3];
+    [actionSheet addAction:action2];
+
+    //相当于之前的[actionSheet show];
+    [self presentViewController:actionSheet animated:YES completion:nil];
+
+}
+
+
+
+
 #pragma mark  ========== 选择图片 ===========
 - (void)selectedXiangCeImage{
     [BCJiuGongGeImageManager maDaKaiShiZhenDong];
@@ -184,6 +248,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         //设置代理
         picker.delegate = self;
+        picker.allowsEditing = YES;
         //打开相册
         [self presentViewController:picker animated:YES completion:nil];
     });
@@ -193,7 +258,7 @@
 //选择完成回调函数
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     //获取图片
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = info[UIImagePickerControllerEditedImage];
     [self dismissViewControllerAnimated:YES completion:nil];
     self.selectedImage = image;
     [self createBeiJing];

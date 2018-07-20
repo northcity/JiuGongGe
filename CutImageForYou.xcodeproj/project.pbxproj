@@ -35,6 +35,7 @@
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F7EDFE9B2101C05F0007F4A8 /* 分享1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7EDFE9A2101C05F0007F4A8 /* 分享1@3x.png */; };
 		F7EDFE9D2101C1060007F4A8 /* 下载1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F7EDFE9C2101C1060007F4A8 /* 下载1@3x.png */; };
+		F7EDFE9F2101C2FE0007F4A8 /* 心脏.png in Resources */ = {isa = PBXBuildFile; fileRef = F7EDFE9E2101C2FE0007F4A8 /* 心脏.png */; };
 		F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */; };
 		F7F1532C20A5EB1900525F05 /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F1531020A5EB1800525F05 /* Factory.m */; };
 		F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F7F1531220A5EB1800525F05 /* weibo.jpg */; };
@@ -152,6 +153,7 @@
 		F795C98720C037AF000E0318 /* BCJiuGongGeImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCJiuGongGeImageManager.m; sourceTree = "<group>"; };
 		F7EDFE9A2101C05F0007F4A8 /* 分享1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "分享1@3x.png"; sourceTree = "<group>"; };
 		F7EDFE9C2101C1060007F4A8 /* 下载1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下载1@3x.png"; sourceTree = "<group>"; };
+		F7EDFE9E2101C2FE0007F4A8 /* 心脏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "心脏.png"; sourceTree = "<group>"; };
 		F7F152F820A5DF1E00525F05 /* ZJViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewShow.h; sourceTree = "<group>"; };
 		F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJViewShow.m; sourceTree = "<group>"; };
 		F7F1530D20A5EB1800525F05 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		F7F1531620A5EB1800525F05 /* ABResource */ = {
 			isa = PBXGroup;
 			children = (
+				F7EDFE9E2101C2FE0007F4A8 /* 心脏.png */,
 				F7EDFE9C2101C1060007F4A8 /* 下载1@3x.png */,
 				F7EDFE9A2101C05F0007F4A8 /* 分享1@3x.png */,
 				F76B57852100D6C5000DA33F /* 返回箭头2.png */,
@@ -560,7 +563,7 @@
 				TargetAttributes = {
 					15FAC16420A524D600DD5E1B = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					15FAC17C20A524D800DD5E1B = {
 						CreatedOnToolsVersion = 9.0;
@@ -614,6 +617,7 @@
 				F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */,
 				F7F1533520A5EB1900525F05 /* ico_分享1@3x.png in Resources */,
 				F7F1532F20A5EB1900525F05 /* zhihuIcon.jpg in Resources */,
+				F7EDFE9F2101C2FE0007F4A8 /* 心脏.png in Resources */,
 				15FAC17520A524D700DD5E1B /* LaunchScreen.storyboard in Resources */,
 				F7F1533220A5EB1900525F05 /* 增值服务2.png in Resources */,
 				F7F1532D20A5EB1900525F05 /* weibo.jpg in Resources */,
@@ -841,8 +845,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = F7C352F4MW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -853,8 +857,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.jiugongge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7b40c363-b87f-43ed-bdc5-84de7da9897d";
+				PROVISIONING_PROFILE_SPECIFIER = jiugongge;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -864,8 +868,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = F7C352F4MW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -876,8 +880,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.jiugongge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "7b40c363-b87f-43ed-bdc5-84de7da9897d";
+				PROVISIONING_PROFILE_SPECIFIER = jiugongge;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

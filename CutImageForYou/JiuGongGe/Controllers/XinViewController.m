@@ -40,6 +40,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self init9View];
     self.allImageArray = [NSMutableArray array];
     [self createButton];
