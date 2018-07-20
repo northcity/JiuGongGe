@@ -41,35 +41,35 @@
     
     
     
-    self.imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH + kAUTOWIDTH(10), ScreenHeight/2 - IMAGEVIEW_HEIGHT * 1.5, IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH + kAUTOWIDTH(5), ScreenHeight/2 - IMAGEVIEW_HEIGHT * 1.5, IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView1.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView1];
     
-    self.imageView2 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH * 2 + kAUTOWIDTH(20), ScreenHeight/2 - IMAGEVIEW_HEIGHT * 1.5, IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView2 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH * 2 + kAUTOWIDTH(10), ScreenHeight/2 - IMAGEVIEW_HEIGHT * 1.5, IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView2.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView2];
     
-    self.imageView3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, ScreenHeight/2 - IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(10), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, ScreenHeight/2 - IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(5), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView3.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView3];
     
-    self.imageView4 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH  + kAUTOWIDTH(10), ScreenHeight/2 - IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(10), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView4 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH  + kAUTOWIDTH(5), ScreenHeight/2 - IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(5), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView4.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView4];
     
-    self.imageView5 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH * 2 + kAUTOWIDTH(20),  ScreenHeight/2 - IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(10), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView5 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH * 2 + kAUTOWIDTH(10),  ScreenHeight/2 - IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(5), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView5.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView5];
     
-    self.imageView6 = [[UIImageView alloc]initWithFrame:CGRectMake(0, ScreenHeight/2 + IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(20), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView6 = [[UIImageView alloc]initWithFrame:CGRectMake(0, ScreenHeight/2 + IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(10), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView6.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView6];
     
-    self.imageView7 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH  + kAUTOWIDTH(10), ScreenHeight/2 + IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(20), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView7 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH  + kAUTOWIDTH(5), ScreenHeight/2 + IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(10), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView7.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView7];
     
-    self.imageView8 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH * 2 + kAUTOWIDTH(20),  ScreenHeight/2 + IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(20), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
+    self.imageView8 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH * 2 + kAUTOWIDTH(10),  ScreenHeight/2 + IMAGEVIEW_HEIGHT * 0.5 + kAUTOWIDTH(10), IMAGEVIEW_WIDTH, IMAGEVIEW_HEIGHT)];
     self.imageView8.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView8];
     
@@ -244,60 +244,31 @@
     
     [self fullScreenshots];
     
-//    [self dismissViewControllerAnimated:YES completion:^{
-//    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)fullScreenshots{
-    
     UIWindow *screenWindow = [[UIApplication sharedApplication] keyWindow];
-    
-    
-    
     UIGraphicsBeginImageContext(screenWindow.frame.size);//全屏截图，包括window
-    
-    
-    
     [screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
-    
-    
-    
     UIImage *viewImage =UIGraphicsGetImageFromCurrentImageContext();
-    
-    
-    
     UIGraphicsEndImageContext();
-    
-    
-    
     //    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
-    
-    
-    
     float originX = 0;
-    
     float originy =ScreenHeight/2 - IMAGEVIEW_HEIGHT * 1.5;
-    
     float width =ScreenWidth;
-    
     float height =ScreenHeight;
-    
     //你需要的区域起点,宽,高;
-    
-    
-    CGRect rect1 =CGRectMake(originX , originy , width , height);
-    
+    CGRect rect1 =CGRectMake(originX , originy , ScreenWidth , ScreenWidth);
     UIImage * imgeee = [UIImage imageWithCGImage:CGImageCreateWithImageInRect([viewImage CGImage], rect1)];
-    
     UIImageView *snapImg = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 200,200)];
-    
     snapImg.contentMode = UIViewContentModeScaleAspectFill;
     snapImg.backgroundColor = [UIColor redColor];
-    
     snapImg.image = imgeee;
-    
-    [self.view addSubview:snapImg];
-    
+    if (self.imageBlock) {
+        self.imageBlock(imgeee);
+    }
+//    [self.view addSubview:snapImg];
 }
 
 

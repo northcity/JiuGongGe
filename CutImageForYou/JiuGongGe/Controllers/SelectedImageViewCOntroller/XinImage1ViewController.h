@@ -7,7 +7,11 @@
 //
 
 #import "XinBaseViewController.h"
+typedef void(^ImageBlock)(UIImage *image);
+
+
 @interface XinImage1ViewController : XinBaseViewController
+@property (nonatomic,copy) ImageBlock imageBlock;
 
 @property(nonatomic,strong) UIImagePickerController * picker3;
 @property(nonatomic,strong) UIImagePickerController * picker5;

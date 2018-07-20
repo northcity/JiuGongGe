@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XinBaseViewController.h"
 
+typedef void(^ImageBlock)(UIImage *image);
 @interface XinImage0ViewController : XinBaseViewController
+@property (nonatomic,copy) ImageBlock imageBlock;
 @end

@@ -114,6 +114,8 @@
 #define IMAGEVIEW_WIDTH     (ScreenWidth- kAUTOWIDTH(20))/3
 #define IMAGEVIEW_HEIGHT     (ScreenWidth- kAUTOWIDTH(20))/3
 
+#define IMAGEVIEW_WIDTH_MAIN     (ScreenWidth- kAUTOWIDTH(10))/3
+#define IMAGEVIEW_HEIGHT_MAIN     (ScreenWidth- kAUTOWIDTH(10))/3
 
 
 #endif /* HeaderDefines_h */

@@ -238,4 +238,36 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)backAction{
+    
+    [self fullScreenshots];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)fullScreenshots{
+    UIWindow *screenWindow = [[UIApplication sharedApplication] keyWindow];
+    UIGraphicsBeginImageContext(screenWindow.frame.size);//全屏截图，包括window
+    [screenWindow.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *viewImage =UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    //    UIImageWriteToSavedPhotosAlbum(viewImage, nil, nil, nil);
+    float originX = 0;
+    float originy =ScreenHeight/2 - IMAGEVIEW_HEIGHT * 1.5;
+    float width =ScreenWidth;
+    float height =ScreenHeight;
+    //你需要的区域起点,宽,高;
+    CGRect rect1 =CGRectMake(originX , originy , ScreenWidth , ScreenWidth);
+    UIImage * imgeee = [UIImage imageWithCGImage:CGImageCreateWithImageInRect([viewImage CGImage], rect1)];
+    UIImageView *snapImg = [[UIImageView alloc] initWithFrame:CGRectMake(0,0, 200,200)];
+    snapImg.contentMode = UIViewContentModeScaleAspectFill;
+    snapImg.backgroundColor = [UIColor redColor];
+    snapImg.image = imgeee;
+    if (self.imageBlock) {
+        self.imageBlock(imgeee);
+    }
+    //    [self.view addSubview:snapImg];
+}
+
 @end
