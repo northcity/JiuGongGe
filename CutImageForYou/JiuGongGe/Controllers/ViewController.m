@@ -12,6 +12,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "SettingViewController.h"
+#import "XinViewController.h"
+
 
 @interface ViewController ()<UIGestureRecognizerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>{
     CGFloat _lastScale;//记录最后一次的图片放大倍数
@@ -44,6 +46,7 @@
 @property(nonatomic,strong)UIButton *backButton;
 @property(nonatomic,strong)UIButton *shareButton;
 
+@property(nonatomic, strong) UIButton *xinButton;
 
 @end
 
@@ -53,7 +56,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setViewController];
+    [self createXinButton];
+    
 }
+- (void)createXinButton{
+    self.xinButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.xinButton.frame = CGRectMake(ScreenWidth/2 - 22, kAUTOHEIGHT(120), 44, 44);
+    self.xinButton.backgroundColor = [UIColor redColor];
+    [self.xinButton addTarget:self action:@selector(presentXinController) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.xinButton];
+}
+
+- (void) presentXinController{
+    XinViewController *xVc = [[XinViewController alloc]init];
+    [self presentViewController:xVc animated:YES completion:nil];
+}
+
 - (void)setViewController{
     self.view.backgroundColor = [UIColor blackColor];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

@@ -19,6 +19,18 @@
 		15FAC18220A524D800DD5E1B /* CutImageForYouTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18120A524D800DD5E1B /* CutImageForYouTests.m */; };
 		15FAC18D20A524D800DD5E1B /* CutImageForYouUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FAC18C20A524D800DD5E1B /* CutImageForYouUITests.m */; };
 		F758C81120A6F5260083B2B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
+		F76B57842100D54A000DA33F /* XinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57832100D54A000DA33F /* XinViewController.m */; };
+		F76B57862100D6C5000DA33F /* 返回箭头2.png in Resources */ = {isa = PBXBuildFile; fileRef = F76B57852100D6C5000DA33F /* 返回箭头2.png */; };
+		F76B57892100DBEA000DA33F /* XinImage0ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57882100DBEA000DA33F /* XinImage0ViewController.m */; };
+		F76B578D2100DD09000DA33F /* XinBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B578C2100DD09000DA33F /* XinBaseViewController.m */; };
+		F76B57902100DF70000DA33F /* XinImage1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B578F2100DF70000DA33F /* XinImage1ViewController.m */; };
+		F76B57932100DF7E000DA33F /* XinImage2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57922100DF7E000DA33F /* XinImage2ViewController.m */; };
+		F76B57962100DF99000DA33F /* XinImage3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57952100DF99000DA33F /* XinImage3ViewController.m */; };
+		F76B57992100DFA6000DA33F /* XinImage4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57982100DFA6000DA33F /* XinImage4ViewController.m */; };
+		F76B579C2100DFB1000DA33F /* XinImage5ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B579B2100DFB1000DA33F /* XinImage5ViewController.m */; };
+		F76B579F2100DFC4000DA33F /* XinImage6ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B579E2100DFC4000DA33F /* XinImage6ViewController.m */; };
+		F76B57A22100DFCE000DA33F /* XinImage7ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57A12100DFCE000DA33F /* XinImage7ViewController.m */; };
+		F76B57A52100DFD8000DA33F /* XinImage8ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F76B57A42100DFD8000DA33F /* XinImage8ViewController.m */; };
 		F795C98820C037AF000E0318 /* BCJiuGongGeImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F795C98720C037AF000E0318 /* BCJiuGongGeImageManager.m */; };
 		F79A83A920A6F5FC008EC8E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F758C81020A6F5260083B2B7 /* Assets.xcassets */; };
 		F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */ = {isa = PBXBuildFile; fileRef = F7F152FE20A5DF1E00525F05 /* ZJViewShow.m */; };
@@ -111,6 +123,29 @@
 		15FAC19C20A5271600DD5E1B /* ThirdPathKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPathKey.h; sourceTree = "<group>"; };
 		15FAC19D20A5271600DD5E1B /* HeaderDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderDefines.h; sourceTree = "<group>"; };
 		F758C81020A6F5260083B2B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CutImageForYou/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		F76B57822100D54A000DA33F /* XinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinViewController.h; sourceTree = "<group>"; };
+		F76B57832100D54A000DA33F /* XinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinViewController.m; sourceTree = "<group>"; };
+		F76B57852100D6C5000DA33F /* 返回箭头2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "返回箭头2.png"; sourceTree = "<group>"; };
+		F76B57872100DBEA000DA33F /* XinImage0ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage0ViewController.h; sourceTree = "<group>"; };
+		F76B57882100DBEA000DA33F /* XinImage0ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage0ViewController.m; sourceTree = "<group>"; };
+		F76B578B2100DD09000DA33F /* XinBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinBaseViewController.h; sourceTree = "<group>"; };
+		F76B578C2100DD09000DA33F /* XinBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinBaseViewController.m; sourceTree = "<group>"; };
+		F76B578E2100DF70000DA33F /* XinImage1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage1ViewController.h; sourceTree = "<group>"; };
+		F76B578F2100DF70000DA33F /* XinImage1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage1ViewController.m; sourceTree = "<group>"; };
+		F76B57912100DF7E000DA33F /* XinImage2ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage2ViewController.h; sourceTree = "<group>"; };
+		F76B57922100DF7E000DA33F /* XinImage2ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage2ViewController.m; sourceTree = "<group>"; };
+		F76B57942100DF99000DA33F /* XinImage3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage3ViewController.h; sourceTree = "<group>"; };
+		F76B57952100DF99000DA33F /* XinImage3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage3ViewController.m; sourceTree = "<group>"; };
+		F76B57972100DFA6000DA33F /* XinImage4ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage4ViewController.h; sourceTree = "<group>"; };
+		F76B57982100DFA6000DA33F /* XinImage4ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage4ViewController.m; sourceTree = "<group>"; };
+		F76B579A2100DFB1000DA33F /* XinImage5ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage5ViewController.h; sourceTree = "<group>"; };
+		F76B579B2100DFB1000DA33F /* XinImage5ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage5ViewController.m; sourceTree = "<group>"; };
+		F76B579D2100DFC4000DA33F /* XinImage6ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage6ViewController.h; sourceTree = "<group>"; };
+		F76B579E2100DFC4000DA33F /* XinImage6ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage6ViewController.m; sourceTree = "<group>"; };
+		F76B57A02100DFCE000DA33F /* XinImage7ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage7ViewController.h; sourceTree = "<group>"; };
+		F76B57A12100DFCE000DA33F /* XinImage7ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage7ViewController.m; sourceTree = "<group>"; };
+		F76B57A32100DFD8000DA33F /* XinImage8ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XinImage8ViewController.h; sourceTree = "<group>"; };
+		F76B57A42100DFD8000DA33F /* XinImage8ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XinImage8ViewController.m; sourceTree = "<group>"; };
 		F795C98620C037AF000E0318 /* BCJiuGongGeImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCJiuGongGeImageManager.h; sourceTree = "<group>"; };
 		F795C98720C037AF000E0318 /* BCJiuGongGeImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCJiuGongGeImageManager.m; sourceTree = "<group>"; };
 		F7F152F820A5DF1E00525F05 /* ZJViewShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJViewShow.h; sourceTree = "<group>"; };
@@ -297,6 +332,33 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		F76B578A2100DC08000DA33F /* SelectedImageViewCOntroller */ = {
+			isa = PBXGroup;
+			children = (
+				F76B578B2100DD09000DA33F /* XinBaseViewController.h */,
+				F76B578C2100DD09000DA33F /* XinBaseViewController.m */,
+				F76B57872100DBEA000DA33F /* XinImage0ViewController.h */,
+				F76B57882100DBEA000DA33F /* XinImage0ViewController.m */,
+				F76B578E2100DF70000DA33F /* XinImage1ViewController.h */,
+				F76B578F2100DF70000DA33F /* XinImage1ViewController.m */,
+				F76B57912100DF7E000DA33F /* XinImage2ViewController.h */,
+				F76B57922100DF7E000DA33F /* XinImage2ViewController.m */,
+				F76B57942100DF99000DA33F /* XinImage3ViewController.h */,
+				F76B57952100DF99000DA33F /* XinImage3ViewController.m */,
+				F76B57972100DFA6000DA33F /* XinImage4ViewController.h */,
+				F76B57982100DFA6000DA33F /* XinImage4ViewController.m */,
+				F76B579A2100DFB1000DA33F /* XinImage5ViewController.h */,
+				F76B579B2100DFB1000DA33F /* XinImage5ViewController.m */,
+				F76B579D2100DFC4000DA33F /* XinImage6ViewController.h */,
+				F76B579E2100DFC4000DA33F /* XinImage6ViewController.m */,
+				F76B57A02100DFCE000DA33F /* XinImage7ViewController.h */,
+				F76B57A12100DFCE000DA33F /* XinImage7ViewController.m */,
+				F76B57A32100DFD8000DA33F /* XinImage8ViewController.h */,
+				F76B57A42100DFD8000DA33F /* XinImage8ViewController.m */,
+			);
+			path = SelectedImageViewCOntroller;
+			sourceTree = "<group>";
+		};
 		F795C98220C03745000E0318 /* JiuGongGe */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,8 +380,11 @@
 		F795C98420C0376F000E0318 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F76B578A2100DC08000DA33F /* SelectedImageViewCOntroller */,
 				15FAC16B20A524D600DD5E1B /* ViewController.h */,
 				15FAC16C20A524D700DD5E1B /* ViewController.m */,
+				F76B57822100D54A000DA33F /* XinViewController.h */,
+				F76B57832100D54A000DA33F /* XinViewController.m */,
 				F7F1536E20A5FEEC00525F05 /* LaunchViewController.h */,
 				F7F1536F20A5FEED00525F05 /* LaunchViewController.m */,
 			);
@@ -377,6 +442,7 @@
 		F7F1531620A5EB1800525F05 /* ABResource */ = {
 			isa = PBXGroup;
 			children = (
+				F76B57852100D6C5000DA33F /* 返回箭头2.png */,
 				F7F1531720A5EB1800525F05 /* ico_分享.png */,
 				F7F1531820A5EB1800525F05 /* 增值服务2.png */,
 				F7F1531920A5EB1800525F05 /* QQ20180311-3.jpg */,
@@ -488,7 +554,7 @@
 				TargetAttributes = {
 					15FAC16420A524D600DD5E1B = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					15FAC17C20A524D800DD5E1B = {
 						CreatedOnToolsVersion = 9.0;
@@ -531,6 +597,7 @@
 				F7F1534120A5EB1900525F05 /* 星级.png in Resources */,
 				F7F1533B20A5EB1900525F05 /* 增值服务1@3x.png in Resources */,
 				F7F1533E20A5EB1900525F05 /* 增值服务@3x.png in Resources */,
+				F76B57862100D6C5000DA33F /* 返回箭头2.png in Resources */,
 				F7F1533A20A5EB1900525F05 /* iconshoudiantong.png in Resources */,
 				F7F1533D20A5EB1900525F05 /* 沙漏@3x.png in Resources */,
 				F7F1534720A5EB5200525F05 /* MainContentCell.xib in Resources */,
@@ -577,18 +644,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				F795C98820C037AF000E0318 /* BCJiuGongGeImageManager.m in Sources */,
+				F76B57932100DF7E000DA33F /* XinImage2ViewController.m in Sources */,
 				F7F1532C20A5EB1900525F05 /* Factory.m in Sources */,
+				F76B579F2100DFC4000DA33F /* XinImage6ViewController.m in Sources */,
+				F76B579C2100DFB1000DA33F /* XinImage5ViewController.m in Sources */,
+				F76B57A52100DFD8000DA33F /* XinImage8ViewController.m in Sources */,
 				15FAC16D20A524D700DD5E1B /* ViewController.m in Sources */,
 				15FAC17820A524D800DD5E1B /* main.m in Sources */,
 				F7F1530620A5DF1E00525F05 /* ZJViewShow.m in Sources */,
 				15FAC16A20A524D600DD5E1B /* AppDelegate.m in Sources */,
 				F7F1534820A5EB5200525F05 /* MainContentCell.m in Sources */,
 				15C3267220A56C730032E3E6 /* STPhotoBroswer.m in Sources */,
+				F76B57992100DFA6000DA33F /* XinImage4ViewController.m in Sources */,
+				F76B57A22100DFCE000DA33F /* XinImage7ViewController.m in Sources */,
+				F76B57962100DF99000DA33F /* XinImage3ViewController.m in Sources */,
 				F7F1534220A5EB1900525F05 /* AboutViewController.m in Sources */,
 				F7F1533020A5EB1900525F05 /* UIImage+ImageEffects.m in Sources */,
+				F76B57842100D54A000DA33F /* XinViewController.m in Sources */,
+				F76B578D2100DD09000DA33F /* XinBaseViewController.m in Sources */,
 				15C3266F20A56B330032E3E6 /* STImageVIew.m in Sources */,
 				F7F1534320A5EB1900525F05 /* SettingViewController.m in Sources */,
 				F7F1537020A5FEED00525F05 /* LaunchViewController.m in Sources */,
+				F76B57902100DF70000DA33F /* XinImage1ViewController.m in Sources */,
+				F76B57892100DBEA000DA33F /* XinImage0ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,8 +833,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7C352F4MW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -767,8 +845,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.jiugongge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7b40c363-b87f-43ed-bdc5-84de7da9897d";
-				PROVISIONING_PROFILE_SPECIFIER = jiugongge;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -778,8 +856,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7C352F4MW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -790,8 +868,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxi.jiugongge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7b40c363-b87f-43ed-bdc5-84de7da9897d";
-				PROVISIONING_PROFILE_SPECIFIER = jiugongge;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

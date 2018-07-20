@@ -102,6 +102,18 @@
 
 #define BCUserDeafaults [NSUserDefaults standardUserDefaults]
 
+#define PCTopBarHeight                      (PNCisIPHONEX ?88.0f:((BuildWithIOS7Flag && PNCisIOS7Later) ?64.0f:44.0f))
+
+//是否ios7编译环境
+#define BuildWithIOS7Flag YES
+
+#ifndef PNCisIOS7Later
+#define PNCisIOS7Later  !([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending)
+#endif
+
+#define IMAGEVIEW_WIDTH     (ScreenWidth- kAUTOWIDTH(20))/3
+#define IMAGEVIEW_HEIGHT     (ScreenWidth- kAUTOWIDTH(20))/3
+
 
 
 #endif /* HeaderDefines_h */
