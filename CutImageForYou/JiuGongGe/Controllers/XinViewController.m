@@ -18,6 +18,8 @@
 #import "XinImage7ViewController.h"
 #import "ZJViewShow.h"
 
+#import <Photos/Photos.h>
+
 
 
 @interface XinViewController (){
@@ -81,7 +83,7 @@
     self.shareBtnView.backgroundColor = [UIColor blackColor];
     
     [self.view addSubview:self.getDownButton];
-//    [self.view addSubview:self.backButton];
+    //    [self.view addSubview:self.backButton];
     [self.view addSubview:self.shareButton];
     [self.view addSubview:self.getDownBtnView];
     [self.view addSubview:self.backBtnView];
@@ -91,68 +93,120 @@
 
 - (void)saveImagesToXiangCe{
     
-    [self.allImageArray removeAllObjects];
-    if (self.selectImage0 && self.imageView0 != nil) {
-        [self.allImageArray addObject:self.selectImage0];
-    }
-    if (self.selectImage1 && self.imageView1 != nil) {
-        [self.allImageArray addObject:self.selectImage1];
-    }
-    if (self.selectImage2 && self.imageView2 != nil) {
-        [self.allImageArray addObject:self.selectImage2];
-    }
-    if (self.selectImage3 && self.imageView3 != nil) {
-        [self.allImageArray addObject:self.selectImage3];
-    }
-    if (self.selectImage4 && self.imageView4 != nil) {
-        [self.allImageArray addObject:self.selectImage4];
-    }
-    if (self.selectImage5 && self.imageView5 != nil) {
-        [self.allImageArray addObject:self.selectImage5];
-    }
-    if (self.selectImage6 && self.imageView6 != nil) {
-        [self.allImageArray addObject:self.selectImage6];
-    }
-    if (self.selectImage7 && self.imageView7 != nil) {
-        [self.allImageArray addObject:self.selectImage7];
-    }
-    if (self.selectImage8 && self.selectImage8 != nil) {
-        [self.allImageArray addObject:self.selectImage8];
-    }
-
-    
-    ZJViewShow * showbeginView = [[ZJViewShow alloc]initWithFrame:self.view.frame WithTitleString:NSLocalizedString(@"保存中......" , nil) WithIamgeName:@"c11"];
-    [self.view addSubview:showbeginView];
-    
-    [self writeImages:self.allImageArray completion:^(id result) {
-        NSLog(@"Result: %@", result);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [showbeginView removeFromSuperview];
-        });
-        
-        ZJViewShow * showEndView =  [[ZJViewShow alloc]initWithFrame:self.view.frame WithTitleString:NSLocalizedString( @"保存成功", nil) WithIamgeName:@"c122"];
-        [self.view addSubview:showEndView];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [showEndView removeFromSuperview];
-//            [self backToStart];
-
-        });
-        if (_isImagesSavedFailed) {
-            //handle failed.
-        }else{
-            //handle success.
+    ALAuthorizationStatus  author = [ALAssetsLibrary authorizationStatus];
+    if (author == ALAuthorizationStatusRestricted || author ==ALAuthorizationStatusDenied){
+        //无权限 做一个友好的提示
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"请您先去设置允许APP访问您的相册 设置>隐私>照片" delegate:self cancelButtonTitle:@"我知道了" otherButtonTitles:nil, nil];
+        [alert show];
+        return ;
+    } else {//做你想做的（可以去打开设置的路径）
+        [self.allImageArray removeAllObjects];
+        if (self.selectImage0 && self.imageView0 != nil) {
+            [self.allImageArray addObject:self.selectImage0];
         }
-    }];
+        if (self.selectImage1 && self.imageView1 != nil) {
+            [self.allImageArray addObject:self.selectImage1];
+        }
+        if (self.selectImage2 && self.imageView2 != nil) {
+            [self.allImageArray addObject:self.selectImage2];
+        }
+        if (self.selectImage3 && self.imageView3 != nil) {
+            [self.allImageArray addObject:self.selectImage3];
+        }
+        if (self.selectImage4 && self.imageView4 != nil) {
+            [self.allImageArray addObject:self.selectImage4];
+        }
+        if (self.selectImage5 && self.imageView5 != nil) {
+            [self.allImageArray addObject:self.selectImage5];
+        }
+        if (self.selectImage6 && self.imageView6 != nil) {
+            [self.allImageArray addObject:self.selectImage6];
+        }
+        if (self.selectImage7 && self.imageView7 != nil) {
+            [self.allImageArray addObject:self.selectImage7];
+        }
+        if (self.selectImage8 && self.selectImage8 != nil) {
+            [self.allImageArray addObject:self.selectImage8];
+        }
+        
+        
+        //    [self loadImageFinished:self.allImageArray.firstObject]
+        
+        ZJViewShow * showbeginView = [[ZJViewShow alloc]initWithFrame:self.view.frame WithTitleString:NSLocalizedString(@"保存中......" , nil) WithIamgeName:@"c11"];
+//        [self.view addSubview:showbeginView];
+        
+            [self loadImageFinished:self.allImageArray completion:^(id result) {
+        
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [showbeginView removeFromSuperview];
+        
+                });
+        
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    //Update UI in UI thread here
+        
+        
+        
+        
+                ZJViewShow * showEndView =  [[ZJViewShow alloc]initWithFrame:self.view.frame WithTitleString:NSLocalizedString( @"保存成功", nil) WithIamgeName:@"c122"];
+                [self.view addSubview:showEndView];
+        
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [showEndView removeFromSuperview];
+                    //            [self backToStart];
+        
+                });
+                });
+        
+                if (_isImagesSavedFailed) {
+                    //handle failed.
+                }else{
+                    //handle success.
+                }
+            }];
+        
+//        [self writeImages:self.allImageArray completion:^(id result) {
+//
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                [showbeginView removeFromSuperview];
+//
+//            });
+//
+//            dispatch_sync(dispatch_get_main_queue(), ^{
+//                //Update UI in UI thread here
+//
+//
+//
+//
+//                ZJViewShow * showEndView =  [[ZJViewShow alloc]initWithFrame:self.view.frame WithTitleString:NSLocalizedString( @"保存成功", nil) WithIamgeName:@"c122"];
+//                [self.view addSubview:showEndView];
+//
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [showEndView removeFromSuperview];
+//                    //            [self backToStart];
+//
+//                });
+//            });
+//
+//            if (_isImagesSavedFailed) {
+//                //handle failed.
+//            }else{
+//                //handle success.
+//            }
+//        }];
+    }
+    
+
+  
+    
+   
 }
 
 //递归保存图片到本地
 - (void) writeImages:(NSMutableArray*)images completion:(completion_t)completionHandler {
     if ([images count] == 0) {
         if (completionHandler) {
-            // Signal completion to the call-site. Use an appropriate result,
-            // instead of @"finished" possibly pass an array of URLs and NSErrors
-            // generated below  in "handle URL or error".
+          
             completionHandler(@"images are all saved.");
         }
         return;
@@ -175,6 +229,44 @@
                                          [self writeImages:images completion:completionHandler];
                                      }];
 }
+
+- (void)loadImageFinished:(NSMutableArray *)images completion:(completion_t)completionHandler{
+    
+    if ([images count] == 0) {
+        if (completionHandler) {
+            completionHandler(@"111");
+        }
+        return;
+    }
+    UIImage* image = [images firstObject];
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        
+        //        /写入图片到相册
+        PHAssetChangeRequest *req = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+        
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"error = %@", [error localizedDescription]);
+            _isImagesSavedFailed = true;
+            return;
+        }
+        
+        [images removeObjectAtIndex:0];
+        [self loadImageFinished:images completion:completionHandler];
+        
+        NSLog(@"success = %d, error = %@", success, error);
+        
+    }];
+    
+    
+}
+
+
+
+
 
 #pragma mark ========= 三大按钮 =========
 //分享图片
@@ -209,7 +301,7 @@
     if (self.selectImage8 && self.selectImage8 != nil) {
         [self.allImageArray addObject:self.selectImage8];
     }
-
+    
     
     NSArray *activityItems = self.allImageArray.mutableCopy;
     if (activityItems.count > 0) {
@@ -225,7 +317,7 @@
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [showEndView removeFromSuperview];
                 });
-//                [self backToStart];
+                //                [self backToStart];
             }
         }];
     }
@@ -246,7 +338,7 @@
     self.imageView0.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.imageView0];
     
-   
+    
     
     
     self.imageView1 = [[UIImageView alloc]initWithFrame:CGRectMake(IMAGEVIEW_WIDTH_MAIN + kAUTOWIDTH(5), ScreenHeight/2 - IMAGEVIEW_HEIGHT_MAIN * 1.5, IMAGEVIEW_WIDTH_MAIN, IMAGEVIEW_HEIGHT_MAIN)];
@@ -319,7 +411,7 @@
     UITapGestureRecognizer *tapGesture8 = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(presentXin8ImageViewController)];
     [self.imageView8  addGestureRecognizer:tapGesture8];
     
-
+    
 }
 
 - (void)presentXin0ImageViewController{
@@ -336,7 +428,7 @@
     
     x1VC.imageBlock = ^(UIImage *image) {
         self.imageView1.image  = image;        self.selectImage1 = image;
-
+        
     };
     [self presentViewController:x1VC animated:YES completion:nil];
 }
@@ -346,7 +438,7 @@
     
     x2VC.imageBlock = ^(UIImage *image) {
         self.imageView2.image  = image;        self.selectImage2 = image;
-
+        
     };
     [self presentViewController:x2VC animated:YES completion:nil];
 }
@@ -356,7 +448,7 @@
     
     x3VC.imageBlock = ^(UIImage *image) {
         self.imageView3.image  = image;        self.selectImage3 = image;
-
+        
     };
     [self presentViewController:x3VC animated:YES completion:nil];
 }
@@ -366,7 +458,7 @@
     
     x4VC.imageBlock = ^(UIImage *image) {
         self.imageView4.image  = image;        self.selectImage4 = image;
-
+        
     };
     [self presentViewController:x4VC animated:YES completion:nil];
 }
@@ -376,7 +468,7 @@
     
     x5VC.imageBlock = ^(UIImage *image) {
         self.imageView5.image  = image;        self.selectImage5 = image;
-
+        
     };
     [self presentViewController:x5VC animated:YES completion:nil];
 }
@@ -386,7 +478,7 @@
     
     x6VC.imageBlock = ^(UIImage *image) {
         self.imageView6.image  = image;        self.selectImage6 = image;
-
+        
     };
     [self presentViewController:x6VC animated:YES completion:nil];
 }
@@ -395,7 +487,7 @@
     XinImage7ViewController *x7VC = [[XinImage7ViewController alloc]init];
     x7VC.imageBlock = ^(UIImage *image) {
         self.imageView7.image  = image;        self.selectImage7 = image;
-
+        
     };
     [self presentViewController:x7VC animated:YES completion:nil];
 }
@@ -405,7 +497,7 @@
     
     x8VC.imageBlock = ^(UIImage *image) {
         self.imageView8.image  = image;        self.selectImage8 = image;
-
+        
     };
     [self presentViewController:x8VC animated:YES completion:nil];
 }
@@ -416,13 +508,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
+

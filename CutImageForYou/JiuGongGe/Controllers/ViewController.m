@@ -219,6 +219,10 @@
     [actionSheet addAction:action3];
     [actionSheet addAction:action2];
 
+    actionSheet.popoverPresentationController.sourceView = self.view;
+    actionSheet.popoverPresentationController.sourceRect = CGRectMake(0,0,1.0,1.0);
+    
+  
     //相当于之前的[actionSheet show];
     [self presentViewController:actionSheet animated:YES completion:nil];
 
